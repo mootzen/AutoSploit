@@ -11,8 +11,10 @@ echo "                                                                    ";
 
 function installDebian () {
     sudo apt-get update;
-    sudo apt-get -y install git python2.7 python-pip postgresql apache2;
-    pip2 install requests psutil;
+    sudo apt-get -y install git python2.7 curl postgresql apache2;
+    curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o /tmp/get-pip.py;
+    sudo python2.7 /tmp/get-pip.py;
+    sudo python2.7 -m pip install 'requests==2.25.1' 'psutil==6.1.*';
     installMSF;
 }
 
